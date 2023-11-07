@@ -255,7 +255,7 @@ extension DSFQuickActionBar.ResultsView: NSTableViewDelegate, NSTableViewDataSou
 		assert(self.selectedRow < self.identifiers.count)
 
 		// If you click on the tableview but NOT on one of those rows the selected row will be -1. Ignore this.
-		guard self.selectedRow > 0 else {
+		guard self.selectedRow >= 0 else {
 			return
 		}
 
