@@ -87,4 +87,13 @@ internal final class DSFTextField: NSTextField {
 	override var allowsVibrancy: Bool {
 		return true
 	}
+    
+    override func becomeFirstResponder() -> Bool {
+        let status = super.becomeFirstResponder()
+        if let editor = self.currentEditor() {
+            let range = editor.selectedRange
+            editor.selectedRange = NSRange(location: range.length, length: 0)
+        }
+        return status
+    }
 }

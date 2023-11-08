@@ -274,6 +274,9 @@ extension DSFQuickActionBar.ResultsView {
 		if quickActionBar.requiredClickCount == .single {
 			self.rowAction()
 		}
+        if let label = quickActionBar.quickActionBarWindow?.editLabel {
+            label.becomeFirstResponder()
+        }
 	}
 
 	@objc private func didDoubleClickRow() {
