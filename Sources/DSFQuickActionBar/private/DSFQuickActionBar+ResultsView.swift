@@ -263,7 +263,9 @@ extension DSFQuickActionBar.ResultsView: NSTableViewDelegate, NSTableViewDataSou
 	}
 
 	func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-		ResultsRowView()
+		let view = ResultsRowView()
+        view.highlightColor = quickActionBar.highlightColor
+        return view
 	}
 }
 
@@ -424,9 +426,11 @@ extension DSFQuickActionBar {
 // MARK: - Custom row drawing
 
 private class ResultsRowView: NSTableRowView {
+    var highlightColor: NSColor?
+    
 	override func drawSelection(in dirtyRect: NSRect) {
 		if selectionHighlightStyle != .none {
-			DSFAppearanceManager.AccentColor.setFill()
+            highlightColor?.setFill()
 			let pth = NSBezierPath(roundedRect: self.bounds.insetBy(dx: 4, dy: 2), xRadius: 4, yRadius: 4)
 			pth.fill()
 		}

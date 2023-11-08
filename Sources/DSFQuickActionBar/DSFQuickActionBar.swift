@@ -25,6 +25,7 @@
 //
 
 import AppKit
+import DSFAppearanceManager
 
 /// A spotlight inspired floating action bar
 public class DSFQuickActionBar {
@@ -59,6 +60,9 @@ public class DSFQuickActionBar {
 
 	/// If targeting 10.12 or 10.11 then you'll need to specify a row height (they don't support automaticTableRowHeights)
 	public var rowHeight: CGFloat = 36
+    
+    /// Allow user to customize the highlighted selection color
+    public var highlightColor: NSColor = DSFAppearanceManager.AccentColor
 
 	/// The current search text
 	public var currentSearchText: String? {
